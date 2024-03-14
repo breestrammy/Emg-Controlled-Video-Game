@@ -1,4 +1,5 @@
-#include "Keyboard.h"
+// use arduino due or other compatible board with USBHost/HID
+#include "Keyboard.h" // introduce the keyboard function
 
 
 int i = 0;
@@ -8,7 +9,7 @@ unsigned s=0;  // start time
   
 const int analogInPin = A11;
 const int emgPin = A11;
-const int threshold = 513;
+const int threshold = 513; //set for forearm, may need to be adjusted
 int emgValue = 0;
 int prevEmgValue = 0;
 bool muscleContraction = false;
@@ -16,8 +17,8 @@ bool muscleContraction = false;
 
 
 void setup() {
-  Serial.begin(9600);
-  // Serial.println('Test');
+  Serial.begin(9600); //baud rate
+  Serial.println('Test');
   pinMode(analogInPin, INPUT);
   Keyboard.begin();
   Keyboard.end();
@@ -29,9 +30,8 @@ void loop() {
   // Check if muscle contraction is detected
   if (emgValue > threshold) {
     muscleContraction = true;
-     Serial.println(emgValue);
-     Serial.println('a');
-     Keyboard.print(' ');
+     Serial.println(emgValue); //prints the value of EMG in the serial monitor if above the set threshold
+     Keyboard.print(' '); //keyboard prints space for each contraction
 
   } else {
     muscleContraction = false;
