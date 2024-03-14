@@ -1,1 +1,2 @@
 # Emg-Controlled-Video-Game
+Using an EMG input into a circuit with two op-amps (AD622 and LM741) and a voltage divider, the output goes into Arduino to be processed by the code. Every time the muscle contraction is above the set threshold (513 for forearm) the spacebar is pressed on the keyboard. With that, you are able to play a simple videogame like Jetpak Joyride with your muscle. This can be applied to patients with neurodegenerative diseases, stroke, muscle injury, etc, and make rehabilitation more fun.
